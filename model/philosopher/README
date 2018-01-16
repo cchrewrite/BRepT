@@ -1,0 +1,3 @@
+"model.mch" is the original model.
+"model_isolation.mch" is the model repaired via Isolation.
+"model_revision.mch" is the model repaired via Revision.
