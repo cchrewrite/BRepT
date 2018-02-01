@@ -14,9 +14,3 @@ cd build
 make
 sudo make install
 cd ../..
-
-
-# Install TensorFlow:
-sudo apt-get install python-pip python-dev
-sudo pip install tensorflow
-
