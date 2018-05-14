@@ -1,3 +1,2 @@
-"model.mch" is the original model.
-"model_isolation.mch" is the model repaired via Isolation.
-"model_revision.mch" is the model repaired via Revision.
+"dining_philosophers_v2.mch" is the original model.
+"result.dining_philosophers_v2.mch" is the model repaired via IRRL.
