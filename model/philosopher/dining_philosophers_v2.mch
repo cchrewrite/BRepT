@@ -1,142 +1,142 @@
 
 MACHINE dining_philosophers_v2
 ABSTRACT_VARIABLES
-  phil1l,
-  phil2l,
-  phil3l,
-  phil1r,
-  phil2r,
-  phil3r,
-  pos1,
-  pos2,
-  pos3
+  L1,
+  L2,
+  L3,
+  R1,
+  R2,
+  R3,
+  P1,
+  P2,
+  P3
 INVARIANT
-    phil1l : 0 .. 1
-  & phil2l : 0 .. 1
-  & phil3l : 0 .. 1
-  & phil1r : 0 .. 1
-  & phil2r : 0 .. 1
-  & phil3r : 0 .. 1
-  & pos1 : 0 .. 1
-  & pos2 : 0 .. 1
-  & pos3 : 0 .. 1
-  & phil1l + phil3r + pos1 = 1
-  & phil2l + phil1r + pos2 = 1
-  & phil3l + phil2r + pos3 = 1
+    L1 : 0 .. 1
+  & L2 : 0 .. 1
+  & L3 : 0 .. 1
+  & R1 : 0 .. 1
+  & R2 : 0 .. 1
+  & R3 : 0 .. 1
+  & P1 : 0 .. 1
+  & P2 : 0 .. 1
+  & P3 : 0 .. 1
+  & L1 + R3 + P1 = 1
+  & L2 + R1 + P2 = 1
+  & L3 + R2 + P3 = 1
 INITIALISATION
     BEGIN
-        phil1l := 0
+        L1 := 0
       ;
-        phil2l := 0
+        L2 := 0
       ;
-        phil3l := 0
+        L3 := 0
       ;
-        phil1r := 0
+        R1 := 0
       ;
-        phil2r := 0
+        R2 := 0
       ;
-        phil3r := 0
+        R3 := 0
       ;
-        pos1 := 1
+        P1 := 1
       ;
-        pos2 := 1
+        P2 := 1
       ;
-        pos3 := 1
+        P3 := 1
     END
 OPERATIONS
-  pickleft1 = 
+  PL1 = 
     PRE 
-        pos1 = 1
+        P1 = 1
     THEN
-        pos1 := 0
+        P1 := 0
       ;
-        phil1l := 1
+        L1 := 1
     END;
   
-  pickleft2 = 
+  PL2 = 
     PRE 
-        pos2 = 1
+        P2 = 1
     THEN
-        pos2 := 0
+        P2 := 0
       ;
-        phil2l := 1
+        L2 := 1
     END;
   
-  pickleft3 = 
+  PL3 = 
     PRE 
-        pos3 = 1
+        P3 = 1
     THEN
-        pos3 := 0
+        P3 := 0
       ;
-        phil3l := 1
+        L3 := 1
     END;
   
-  pickright1 = 
+  PR1 = 
     PRE 
-        pos2 = 1
+        P2 = 1
     THEN
-        pos2 := 0
+        P2 := 0
       ;
-        phil1r := 1
+        R1 := 1
     END;
   
-  pickright2 = 
+  PR2 = 
     PRE 
-        pos3 = 1
+        P3 = 1
     THEN
-        pos3 := 0
+        P3 := 0
       ;
-        phil2r := 1
+        R2 := 1
     END;
   
-  pickright3 = 
+  PR3 = 
     PRE 
-        pos1 = 1
+        P1 = 1
     THEN
-        pos1 := 0
+        P1 := 0
       ;
-        phil3r := 1
+        R3 := 1
     END;
   
-  eat1 = 
+  PD1 = 
     PRE 
-        phil1l = 1
-      & phil1r = 1
+        L1 = 1
+      & R1 = 1
     THEN
-        phil1l := 0
+        L1 := 0
       ;
-        phil1r := 0
+        R1 := 0
       ;
-        pos1 := 1
+        P1 := 1
       ;
-        pos2 := 1
+        P2 := 1
     END;
   
-  eat2 = 
+  PD2 = 
     PRE 
-        phil2l = 1
-      & phil2r = 1
+        L2 = 1
+      & R2 = 1
     THEN
-        phil2l := 0
+        L2 := 0
       ;
-        phil2r := 0
+        R2 := 0
       ;
-        pos2 := 1
+        P2 := 1
       ;
-        pos3 := 1
+        P3 := 1
     END;
   
-  eat3 = 
+  PD3 = 
     PRE 
-        phil3l = 1
-      & phil3r = 1
+        L3 = 1
+      & R3 = 1
     THEN
-        phil3l := 0
+        L3 := 0
       ;
-        phil3r := 0
+        R3 := 0
       ;
-        pos3 := 1
+        P3 := 1
       ;
-        pos1 := 1
+        P1 := 1
     END
 END
